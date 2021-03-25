@@ -1,0 +1,43 @@
+body{
+  text-align: center;
+}
+.coinimg{
+  position: absolute;
+  width:100px;
+  height:100px;
+  bottom:10px;
+  right:5%;
+}
+
+.coins{
+  position: absolute;
+  top:5%;
+  right:5%;
+  color:black;
+}
+
+
+.upgrade1{
+  position:absolute;
+  width:32%;
+  background-color:grey;
+  border:none;
+  padding:10px 5px;
+  top:10px;
+  height:15%;
+  text-align: center;
+   border-radius: 15px;
+  
+}
+
+
+
+.upgrade1 h3 {
+  position:absolute;
+    background-color: black;
+    color: white;
+    padding:10px 10px;
+    width:50px;
+    right:42%;
+    top:33px;
+}
