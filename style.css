@@ -1,4 +1,10 @@
-body{
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* body{
   text-align: center;
 }
 .coinimg{
@@ -40,4 +46,4 @@ body{
     width:50px;
     right:42%;
     top:33px;
-}
+} */

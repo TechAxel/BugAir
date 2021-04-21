@@ -1,18 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BugAir</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- style -->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- script -->
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <img src="coin.png" onclick="add()" class="coinimg">
-    <h1 class="coins" id="coins">Coins: 0</h1>
-    <div class="upgrade1">
-      <h4 id="u1">Price - 15 | Upgrades - 0</h4><!-- u1 is upgrade 1-->
-      <h3 onclick="b1()">BUY</h3><!--b1 is buy1-->
+    <div>
+      <!-- product title -->
+      <h1>BugAir - Clicker Game</h1>
+      <!-- product description -->
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui expedita
+        delectus ab, at numquam iusto saepe. Repellendus ullam labore doloribus
+        eius at? Reprehenderit sequi explicabo veniam quos harum magni
+        architecto.
+      </p>
+      <!-- move to game -->
+      <a href="#game">Play Game!</a>
     </div>
-    <script src="script.js"></script>
+
+    <div id="game">
+      <h2>Coins: 0</h2>
+      <div>
+        <!-- Price of upgrade & Upgrade level-->
+        <h4 id="u1">Price - 15 | Upgrades - 0</h4>
+
+        <!-- Purchase an upgrade -->
+        <h3 onclick="b1()">BUY</h3>
+      </div>
+    </div>
+
+    <!-- resource indicator -->
+    <div id="field"></div>
+
+    <!-- increase money -->
+    <div>
+      <button>Increase Money</button>
+      <img src="coin.png" onclick="add()" class="coinimg" />
+    </div>
   </body>
 </html>
