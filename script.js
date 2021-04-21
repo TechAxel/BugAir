@@ -12,17 +12,15 @@ function incrementMoney() {
 }
 
 function upgrade() {
-  if (stats.money >= stats.upgradePrice) {
-    stats.upgrades += 1;
-    stats.money = stats.money - stats.upgradePrice;
-    stats.upgradePrice = Math.round(stats.upgradePrice * 1.15);
+  if (stats.money < stats.upgradePrice) return alert("Not enough money!");
 
-    document.querySelector(".price").innerText = stats.upgradePrice;
-    document.querySelector(".upgrades").innerText = stats.upgrades;
-    document.querySelector(".money").innerText = stats.money;
-  } else {
-    alert("Not enough cows!");
-  }
+  stats.upgrades += 1;
+  stats.money = stats.money - stats.upgradePrice;
+  stats.upgradePrice = Math.round(stats.upgradePrice * 1.15);
+
+  document.querySelector(".price").innerText = stats.upgradePrice;
+  document.querySelector(".upgrades").innerText = stats.upgrades;
+  document.querySelector(".money").innerText = stats.money;
 }
 
 setInterval(function () {
