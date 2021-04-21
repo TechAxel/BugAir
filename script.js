@@ -1,7 +1,8 @@
 let stats = {
   money: 0,
-  upgradePrice: 15,
   upgrades: 0,
+  upgradePrice: 10,
+  oldUpgradePrice: 0,
 };
 
 document.querySelector(".price").innerText = stats.upgradePrice;
@@ -14,6 +15,7 @@ function incrementMoney() {
 function upgrade() {
   if (stats.money < stats.upgradePrice) return alert("Not enough money!");
 
+  stats.oldUpgradePrice = stats.upgradePrice;
   stats.upgrades += 1;
   stats.money = stats.money - stats.upgradePrice;
   stats.upgradePrice = Math.round(stats.upgradePrice * 1.15);
@@ -24,7 +26,9 @@ function upgrade() {
 }
 
 function sellUpgrade() {
-  stats.money = (stats.upgradePrice - 0.5) * 100;
+  if (stats.upgrades <= 0) return alert("No current upgrade.");
+
+  stats.money += stats.oldUpgradePrice * 0.5;
   stats.upgrades -= 1;
   document.querySelector(".upgrades").innerText = stats.upgrades;
   document.querySelector(".money").innerText = stats.money;
