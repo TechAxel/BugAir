@@ -15,14 +15,14 @@ function incrementMoney() {
 function upgrade() {
   if (stats.money < stats.upgradePrice) return alert("Not enough money!");
 
-  stats.oldUpgradePrice = stats.upgradePrice;
   stats.upgrades += 1;
-  stats.money = stats.money - stats.upgradePrice;
+  stats.money -= stats.upgradePrice;
+  stats.oldUpgradePrice = stats.upgradePrice;
   stats.upgradePrice = Math.round(stats.upgradePrice * 1.15);
 
-  document.querySelector(".price").innerText = stats.upgradePrice;
-  document.querySelector(".upgrades").innerText = stats.upgrades;
   document.querySelector(".money").innerText = stats.money;
+  document.querySelector(".upgrades").innerText = stats.upgrades;
+  document.querySelector(".price").innerText = stats.upgradePrice;
 }
 
 function sellUpgrade() {
@@ -31,9 +31,9 @@ function sellUpgrade() {
   stats.upgrades -= 1;
   stats.money += stats.oldUpgradePrice * 0.5;
   stats.upgradePrice = stats.oldUpgradePrice;
-  
-  document.querySelector(".upgrades").innerText = stats.upgrades;
+
   document.querySelector(".money").innerText = stats.money;
+  document.querySelector(".upgrades").innerText = stats.upgrades;
 }
 
 setInterval(function () {
