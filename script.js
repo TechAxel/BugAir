@@ -1,27 +1,55 @@
 let stats = {
-  coins: 0, //coins
-  p1: 15, //price 1 for upgrade 1
-  ps1: 0 //per second for upgrade 1
+  money: 0,
+  upgrades: 0,
+  upgradePrice: 10,
+  oldUpgradePrice: 0,
+};
+
+document.querySelector(".price").innerText = stats.upgradePrice;
+
+function incrementMoney() {
+  stats.money += 1 + stats.upgrades;
+  document.querySelector(".money").innerText = stats.money;
 }
 
-function add(){//adds coins
-  stats.coins++;//+1
-  document.getElementById("coins").innerHTML="Coins: " + stats.coins;
+function upgrade() {
+  if (stats.money < stats.upgradePrice) return alert("Not enough money!");
+
+  stats.upgrades += 1;
+  stats.money -= stats.upgradePrice;
+  stats.oldUpgradePrice = stats.upgradePrice;
+  stats.upgradePrice = Math.round(stats.upgradePrice * 1.15);
+
+  document.querySelector(".money").innerText = stats.money;
+  document.querySelector(".upgrades").innerText = stats.upgrades;
+  document.querySelector(".price").innerText = stats.upgradePrice;
 }
 
+// FIXME: upgrade price after sell upgrade is wrong
+// TODO: create a history array?
+function sellUpgrade() {
+  if (stats.upgrades <= 0) return alert("No current upgrade.");
 
-function b1() {
-    if (stats.coins >= stats.p1) {
-        stats.ps1++;
-        stats.coins = stats.coins - stats.p1;
-        stats.p1 = Math.round(stats.p1 * 1.15);
-        document.getElementById("u1").innerHTML = "Price: " + stats.p1 + " Upgrades - " + stats.ps1;//updates the html
-        document.getElementById("coins").innerHTML = "Coins: " + stats.coins;//updates the html
-    } else {
-        alert('Not enough cows!');
-    }
+  stats.upgrades -= 1;
+  stats.money += stats.oldUpgradePrice * 0.5;
+  stats.upgradePrice = stats.oldUpgradePrice;
+
+  document.querySelector(".money").innerText = stats.money;
+  document.querySelector(".upgrades").innerText = stats.upgrades;
+  document.querySelector(".price").innerText = stats.upgradePrice;
 }
-setInterval(function() {
-  stats.coins = stats.coins + stats.ps1;//changes
-  document.getElementById("coins").innerHTML = "Coins: " + stats.coins;
-}, 1000);//every second
+
+setInterval(function () {
+  stats.money += stats.upgrades;
+  document.querySelector(".money").innerText = stats.money;
+
+  // upgrades indicator
+  if (stats.upgrades > 0) {
+    const el = `<span class="py-2 px-3 text-white bg-black rounded">Upgrade</span> `;
+    document.querySelector("#field").innerHTML = el
+      .repeat(stats.upgrades)
+      .trim();
+  } else {
+    document.querySelector("#field").innerText = "No current upgrade.";
+  }
+}, 1000);
