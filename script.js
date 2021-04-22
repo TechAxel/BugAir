@@ -28,8 +28,10 @@ function upgrade() {
 function sellUpgrade() {
   if (stats.upgrades <= 0) return alert("No current upgrade.");
 
-  stats.money += stats.oldUpgradePrice * 0.5;
   stats.upgrades -= 1;
+  stats.money += stats.oldUpgradePrice * 0.5;
+  stats.upgradePrice = stats.oldUpgradePrice;
+  
   document.querySelector(".upgrades").innerText = stats.upgrades;
   document.querySelector(".money").innerText = stats.money;
 }
