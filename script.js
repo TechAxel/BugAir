@@ -25,6 +25,8 @@ function upgrade() {
   document.querySelector(".price").innerText = stats.upgradePrice;
 }
 
+// FIXME: upgrade price after sell upgrade is wrong
+// TODO: create a history array?
 function sellUpgrade() {
   if (stats.upgrades <= 0) return alert("No current upgrade.");
 
