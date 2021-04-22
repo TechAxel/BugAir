@@ -34,6 +34,7 @@ function sellUpgrade() {
 
   document.querySelector(".money").innerText = stats.money;
   document.querySelector(".upgrades").innerText = stats.upgrades;
+  document.querySelector(".price").innerText = stats.upgradePrice;
 }
 
 setInterval(function () {
