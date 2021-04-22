@@ -8,7 +8,7 @@ let stats = {
 document.querySelector(".price").innerText = stats.upgradePrice;
 
 function incrementMoney() {
-  stats.money += 1;
+  stats.money += 1 + stats.upgrades;
   document.querySelector(".money").innerText = stats.money;
 }
 
