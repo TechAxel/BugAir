@@ -35,7 +35,7 @@ function sellUpgrade() {
 }
 
 setInterval(function () {
-  stats.money = stats.money + stats.upgrades;
+  stats.money += stats.upgrades;
   document.querySelector(".money").innerText = stats.money;
 
   // upgrades indicator
