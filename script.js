@@ -9,7 +9,7 @@ function add(){//adds coins
 }
 
 
-function b1() {
+function buy1() {
     if (stats.coins >= stats.p1) {
         stats.ps1++;
         stats.coins = stats.coins - stats.p1;
