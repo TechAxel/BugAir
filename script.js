@@ -25,6 +25,6 @@ setInterval(function() {
 }, 1)
 
 function setstats(){ 
-  document.getElementById("u1").innerHTML = "Price: " + stats.p1 + " Upgrades - " + stats.ps1;//updates the html
-  document.getElementById("coins").innerHTML = "Coins: " + stats.coins;
+  document.getElementById("u1").innerHTML = `Price: ${stats.p1} Upgrades - ${stats.ps1}`;//updates the html
+  document.getElementById("coins").innerHTML = `Coins: ${stats.coins}`;
 }
