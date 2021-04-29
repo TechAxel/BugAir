@@ -15,14 +15,18 @@ function buy1() {
         stats.coins = stats.coins - stats.p1;
         stats.p1 = Math.round(stats.p1 * 1.15);
     } else {
-        alert('Not enough cows!');
+        alert('Not enough coins!');
     }
 }
 
 setInterval(function() {
-  stats.coins = stats.coins + stats.ps1;//changes
   setstats()
 }, 1)
+setInterval(function() {
+  stats.coins = stats.coins + stats.ps1;//changes
+}, 100)
+
+
 
 function setstats(){ 
   document.getElementById("u1").innerHTML = `Price: ${stats.p1} Upgrades - ${stats.ps1}`;//updates the html
