@@ -41,3 +41,17 @@ body{
     right:42%;
     top:33px;
 }
+
+
+
+.p{
+  color:Black;
+}
+.n{
+  color:blue;
+}
+.wm{
+  position: absolute;
+  left:5%;
+  bottom:2%;
+}
